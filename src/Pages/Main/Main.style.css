@@ -1,0 +1,8 @@
+.Main__container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    background-color: darkgray;
+    position: absolute; 
+  }

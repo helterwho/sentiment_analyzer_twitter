@@ -1,0 +1,97 @@
+.GenericTweetContainer-list{
+    width: 80%;
+    height: fit-content;
+    background-color: #15202B;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    margin-bottom: 15px;
+}
+
+.GenericTweetContainer-grid{
+    width: 30%;
+    height: fit-content;
+    background-color: #15202B;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    /* margin-bottom: 15px; */
+    margin: 15px;
+}
+
+.GenericTweetContainer_center{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.GenericTweetContainer_basic-user-information{
+    width: 100%;
+    height: 49px;
+    display: flex;
+    padding-bottom: 15px;
+}
+
+.GenericTweetContainer_basic-user-information > .user-container{
+    width: 49px;
+    height: 49px;
+}
+
+.user-container > .user-profile-pic{
+    width: 49px;
+    height: 49px;
+    border-radius: 49px;
+}
+
+.GenericTweetContainer_basic-user-information > .names-display-container{
+    width: 100%;
+    height: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.names-display-container > .display-name{
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    color: white;
+}
+
+.names-display-container > .display-screen-name{
+    font-size: 15px;
+    text-align: left;
+    color: #596874;
+}
+
+.GenericTweetContainer_text-area-container{
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 15px;
+    text-align: left;
+}
+
+.GenericTweetContainer_text-area-container > span {
+    font-size: 28px;
+    color: white;
+    word-wrap: break-word;
+    line-height: 1.3125;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+}
+
+.GenericTweetContainer_date-area-container{
+    width: 100%;
+    height: 20px;
+    padding-bottom: 15px;
+    text-align: left;
+}
+
+.GenericTweetContainer_date-area-container > span{
+    font-size: 15px;
+    text-align: left;
+    color: #596874;
+}

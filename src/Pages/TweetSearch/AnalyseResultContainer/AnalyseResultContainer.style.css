@@ -1,0 +1,126 @@
+.data__container{
+    display: flex;
+}
+
+.data__container > .left_side{
+    height: 100%;
+     width: 180px;
+     background-color: yellow;
+}
+
+.data__container > .right_side{
+     height: 100%;
+     width: stretch;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     padding-left: 15px;
+}
+
+.right_side > .footer{
+    width: 100%;
+    height: 60px;
+    display: flex;
+}
+
+.footer > .sentimental-container{
+    width: 140px;
+    height: 100%;
+    /* background-color: yellow; */
+    margin-right: 15px;
+    display: flex;
+}
+
+.sentimental-container > .left-side{
+    width: 50%;
+    height: 100%;
+    /* background-color: yellow; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sentimental-container > .right-side{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.right-side > span{
+    font-size: 18px;
+    color: white;
+}
+
+.emotion_color__raiva{ 
+    width: 20px; 
+    height: 20px;
+    background-color: #ED383D; 
+}
+
+.emotion_color__alegria{ 
+    width: 20px; 
+    height: 20px;
+    background-color: #F9A240; 
+}
+
+.emotion_color__desgosto{ 
+    width: 20px; 
+    height: 20px;
+    background-color: #92CA82; 
+}
+
+.emotion_color__medo{ 
+    width: 20px; 
+    height: 20px;
+    background-color: #B16AA1; 
+}
+
+.emotion_color__tristeza{ 
+    width: 20px; 
+    height: 20px;
+    background-color: #6E95CB; 
+}
+
+.emotion_color__surpresa{ 
+    width: 20px; 
+    height: 20px;
+    background-color: white; 
+}
+
+.data__container > .predominant_emotion_color__raiva{ 
+    height: 100%;
+    width: 180px;
+    background-color: #ED383D; 
+}
+
+.data__container > .predominant_emotion_color__alegria{ 
+    height: 100%;
+    width: 180px;
+    background-color: #F9A240; 
+}
+
+.data__container > .predominant_emotion_color__desgosto{ 
+    height: 100%;
+    width: 180px;
+    background-color: #92CA82; 
+}
+
+.data__container > .predominant_emotion_color__medo{ 
+    height: 100%;
+    width: 180px;
+    background-color: #B16AA1; 
+}
+
+.data__container > .predominant_emotion_color__tristeza{ 
+    height: 100%;
+    width: 180px;
+    background-color: #6E95CB; 
+}
+
+.data__container > .predominant_emotion_color__surpresa{ 
+    height: 100%;
+    width: 180px;
+    background-color: white; 
+}
