@@ -76,23 +76,6 @@ export default class TweetSearch extends React.Component {
     this.searchTweetsDuringInterval()
   }
 
-
-  checkTweetIsAlreadyStored = (tweetId)=>{
-    const storedTweets = this.state.tweetList
-    
-    if(!storedTweets)
-      return
-    
-    let response = false
-    storedTweets.forEach((tweet)=>{
-      if(tweet.id === tweetId)
-        response = true
-    })
-
-    return response
-  }
-
-
   manageTweetsAmount = (tweets) =>{
     let limitedTweets = []
     tweets.forEach((tweet, index)=>{
@@ -104,32 +87,16 @@ export default class TweetSearch extends React.Component {
     return limitedTweets
   }
 
-
-  addNewsToTheStore = (tweets)=>{
-    let storedTweets = this.state.tweetList
-    
-    if(!storedTweets)
-      return
-
-    tweets.forEach((tweet, index)=>{
-      if(this.checkTweetIsAlreadyStored(tweet.id))
-        tweets.splice(index, 1)
-      else 
-        storedTweets.push(tweet)
-    })
-
-    return storedTweets
-  }
-
-
   filterTweets = (tweets) => {
+
+    let filteredTweets = []
     tweets.forEach((tweet, index)=>{
-      // remove alguns tweets com link
-      if(tweet.text.includes('https://')){
-        tweets.splice(index, 1)
+      // remove alguns tweets de RT
+      if(tweet.retweet_count === 0){
+        filteredTweets.push(tweet)
       }
     })
-    return tweets
+    return filteredTweets
   }
 
 
@@ -139,23 +106,18 @@ export default class TweetSearch extends React.Component {
       return
 
     let processedTweets = this.filterTweets(tweets)
-    
-    if(this.state.textSearch === this.state.textSubimited)
-      processedTweets = this.addNewsToTheStore(processedTweets) 
 
     processedTweets = BasicFunctions.sortBy(processedTweets, {
       prop: 'created_at',
       desc: true
     })
-    
 
-    return this.manageTweetsAmount(processedTweets)
-
+    return processedTweets
   }
 
   searchForTweets = async () => {
     const search = this.state.textSearch
-    .replace(/[&\/\\#,+()$~%.'":*?<>{}@]/g, '')
+    .replace(/[&\\#,+()$~%.'":*?<>{}@]/g, '')
     this.setState({ isLoadingData: true })
 
     if (search !== '') {
@@ -192,7 +154,7 @@ export default class TweetSearch extends React.Component {
         ? 'grid' : 'list'}
         name={tweet.user.name}
         screenName={tweet.user.screen_name}
-        darkMode={darkMode} text={tweet.text}
+        darkMode={darkMode} text={tweet.full_text}
         profilePic={tweet.user.profile_image_url}
         dateCreation={tweet.created_at}
 
@@ -280,7 +242,7 @@ export default class TweetSearch extends React.Component {
                       <form className='searchInput'>
                         <input type='text' style={{ border: 'none',
                           width: '100%' }}
-                          placeholder='Ex.: @bolsonaro'
+                          placeholder='Ex.: @omelete'
                           value={this.state.textSearch}
                           onChange={this.handleChangeTextSearch}
                           onKeyDown={this.handleKeyDown}
@@ -384,7 +346,7 @@ export default class TweetSearch extends React.Component {
                     <GenericTweetContainer viewMode={'list'}
                       name={tweet.user.name}
                       screenName={tweet.user.screen_name}
-                      darkMode={this.state.darkMode} text={tweet.text}
+                      darkMode={this.state.darkMode} text={tweet.full_text}
                       profilePic={tweet.user.profile_image_url}
                       dateCreation={tweet.created_at}
                     />

@@ -1,5 +1,6 @@
 import React from 'react'
 import './AnalyseResultContainer.style.css'
+import { BasicFunctions }  from '../../../utils/BasicFunctions/index'
 
 /*
 Made By: André Feitosa
@@ -20,6 +21,11 @@ export default class AnalyseResultContainer extends React.Component {
     render() {
         const { predominant, dataEmotions, limiteHeight } = this.props
 
+        let emotions = BasicFunctions.sortBy(dataEmotions, {
+          prop: 'accuracy',
+          desc: true
+        })
+
         return (
             <div className='result_container' style={ limiteHeight ? {height: '230px'} : null}>
 
@@ -34,7 +40,7 @@ export default class AnalyseResultContainer extends React.Component {
   
             <div className='result_container-accuracy'>
               {
-                dataEmotions.map((emotion, i) => {
+                emotions.map((emotion, i) => {
                   return (
                     <div key={`emotion_${i}`} className='result_container-row'>
                       <div className='result_container-subtitle_container'>
