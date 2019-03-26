@@ -1,3 +1,7 @@
+## About
+
+frontEnd application that analyse emotions from some tweets through a word inputed by users
+
 ## Examples
 
 https://sentiment-analyzer-tweets.herokuapp.com/
